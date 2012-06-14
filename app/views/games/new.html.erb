@@ -23,24 +23,32 @@
         </div>
     </div>
     <div class="scores">
-
+        <table>
+            <thead>
+                <tr>
+                    <th class="final_score_label">Final Score</th>
+                    <th>Round 1</th>
+                    <th>Round 2</th>
+                    <th>Round 3</th>
+                    <th>Round 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="yellow_scores">
+                    <td><%= number_field_tag('game[yellow_score_final]', 0, in: 0..20, class: 'final_score') %></td>
+                    <td><%= number_field_tag('game[yellow_score_round_1]', 0, in: 0..5, class: 'round_score') %></td>
+                    <td><%= number_field_tag('game[yellow_score_round_2]', 0, in: 0..5, class: 'round_score') %></td>
+                    <td><%= number_field_tag('game[yellow_score_round_3]', 0, in: 0..5, class: 'round_score') %></td>
+                    <td><%= number_field_tag('game[yellow_score_round_4]', 0, in: 0..5, class: 'round_score') %></td>
+                </tr>
+                <tr id="black_scores">
+                    <td><%= number_field_tag('game[black_score_final]', 0, in: 0..20, class: 'final_score') %></td>
+                    <td><%= number_field_tag('game[black_score_round_1]', 0, in: 0..5, class: 'round_score') %></td>
+                    <td><%= number_field_tag('game[black_score_round_2]', 0, in: 0..5, class: 'round_score') %></td>
+                    <td><%= number_field_tag('game[black_score_round_3]', 0, in: 0..5, class: 'round_score') %></td>
+                    <td><%= number_field_tag('game[black_score_round_4]', 0, in: 0..5, class: 'round_score') %></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.player select').change(function () {
-            var $select = $(this);
-            var id = $select.val();
-            if (id == '') {
-                $select.parent().css('background-image', '')
-            } else {
-                $.get('/players/' + id + '/photo', function (data) {
-                    $select.parent().css('background-image', 'url(' + data + ')');
-                });
-            }
-        })
-    });
-</script>
-
-
