@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  game_id: 1
+  round_number: 1
+  black_team_score: 1
+  yellow_team_score: 1
+
+two:
+  game_id: 1
+  round_number: 1
+  black_team_score: 1
+  yellow_team_score: 1

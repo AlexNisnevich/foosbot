@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  black_team: false
+  first_player_id: 1
+  second_player_id: 1
+  first_player_on_defense: false
+  first_to_switch: false
+
+two:
+  black_team: false
+  first_player_id: 1
+  second_player_id: 1
+  first_player_on_defense: false
+  first_to_switch: false

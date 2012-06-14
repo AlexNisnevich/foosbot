@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  elo: 1.5
+  games_played: 1
+  wins: 1
+  losses: 1
+
+two:
+  name: MyString
+  elo: 1.5
+  games_played: 1
+  wins: 1
+  losses: 1

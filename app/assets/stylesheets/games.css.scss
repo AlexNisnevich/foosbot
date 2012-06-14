@@ -1,0 +1,68 @@
+// Place all the styles related to the Games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.game_form {
+    .players {
+        .team {
+            clear: both;
+
+            .team_color {
+                float: left;
+                font-size: 1.5em;
+                font-weight: bold;
+                text-align: center;
+                width: 80px;
+                margin-top: 35px;
+
+                &.yellow {
+                    color: #990;
+                }
+
+                &.black {
+                    margin-left: -20px;
+                }
+            }
+
+            .player {
+                float: left;
+                width: 80px;
+                height: 80px;
+                border: 1px solid grey;
+                margin: 15px;
+
+                select {
+                    opacity: 0.6;
+                    margin-top: 55px;
+                    margin-left: 4px;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &#yellow_team {
+                .player {
+                    margin-left: 60px;
+                    margin-right: 10px;
+                    background-color: #ff9;
+                }
+            }
+
+            &#black_team {
+                .player {
+                    margin-left: 10px;
+                    margin-right: 80px;
+                    background-color: #eee;
+                }
+            }
+        }
+
+        .table_diagram {
+            float: left;
+            clear: both;
+            width: 400px;
+        }
+    }
+}

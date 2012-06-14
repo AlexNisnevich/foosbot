@@ -1,0 +1,46 @@
+<h1>Record a Game</h1>
+
+<div class="game_form">
+    <div class="players">
+        <div id="yellow_team" class="team">
+            <div class="team_color yellow">Yellow Team</div>
+            <div id="yellow_offensive" class="player">
+                <%= collection_select(:game, :yellow_offensive, @players, :id, :name, :include_blank => true) %>
+            </div>
+            <div id="yellow_defensive" class="player">
+                <%= collection_select(:game, :yellow_defensive, @players, :id, :name, :include_blank => true) %>
+            </div>
+        </div>
+        <%= image_tag "table.png", class: "table_diagram" %>
+        <div id="black_team" class="team">
+            <div id="black_defensive" class="player">
+                <%= collection_select(:game, :black_defensive, @players, :id, :name, :include_blank => true) %>
+            </div>
+            <div id="black_offensive" class="player">
+                <%= collection_select(:game, :black_offensive, @players, :id, :name, :include_blank => true) %>
+            </div>
+            <div class="team_color black">Black Team</div>
+        </div>
+    </div>
+    <div class="scores">
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.player select').change(function () {
+            var $select = $(this);
+            var id = $select.val();
+            if (id == '') {
+                $select.parent().css('background-image', '')
+            } else {
+                $.get('/players/' + id + '/photo', function (data) {
+                    $select.parent().css('background-image', 'url(' + data + ')');
+                });
+            }
+        })
+    });
+</script>
+
+
