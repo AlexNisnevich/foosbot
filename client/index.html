@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
+<link href="foosbot.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="left-panel">
+  <div class="score">
+    <span class="small">Score</span><br />
+    <span class="huge">4</span>
+  </div>
+  <div class="tally"></div>
+  <div class="total">
+    <span class="small">Total</span><br />
+    <span class="big">7</span><br />
+  </div>
+</div>
+<div id="container">
+  <div id="header-panel">
+    <div id="own-goal">
+      Own Goal!
+    </div>
+  </div>
+  <div id="box">
+    <div class="player ui-state-default">
+      <div class="card">
+        <div class="photo">
+        </div>
+        Richard
+      </div>
+    </div>
+    <div class="player ui-state-default">
+      <div class="card">
+        <div class="photo">
+        </div>
+        Dmitri
+      </div>
+    </div>
+    <div class="player ui-state-default">
+      <div class="card">
+        <div class="photo">
+        </div>
+        Alex
+      </div>
+    </div>
+    <div class="player ui-state-default">
+      <div class="card">
+        <div class="photo">
+        </div>
+        Wybo
+      </div>
+    </div>
+  </div>
+  <div id="footer-panel">
+    <div class="spacer"></div>
+    <div id="bottom-container">
+      <div id="undo">
+        <span class="medium">Undo!</span>
+      </div>
+      <div class="spacer"></div>
+      <div id="game">
+        <span class="small">Game</span>
+        <span class="medium">2</span><br />
+      </div>
+      <div class="spacer"></div>
+      <div id="submit-game">
+        <span class="medium">Submit!</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="right-panel">
+  <div class="spacer"></div>
+  <div class="score">
+    <span class="small">Score</span><br />
+    <span class="huge">1</span>
+  </div>
+  <div class="tally"></div>
+  <div class="total">
+    <span class="small">Total</span><br />
+    <span class="big">13</span><br />
+  </div>
+</div>
+
+<script>
+$(function() {
+  $( "#box" ).sortable();
+  $( "#box" ).disableSelection();
+});
+</script>
+
+</body>
+</html>
