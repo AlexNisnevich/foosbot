@@ -24,7 +24,7 @@ score = (player) ->
 
   if current_game.scores[0] is score_limit or current_game.scores[1] is score_limit
     match.push current_game
-    new_game()
+    new_game current_game.arrangement
 
 reposition = (new_arrangement) ->
   current_game.arrangement = new_arrangement
