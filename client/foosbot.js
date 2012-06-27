@@ -4,12 +4,6 @@
   this.Game = {
     server_url: "",
     score_limit: 5,
-    options: {
-      enablePrivilege: false,
-      consumerKey: "08158d5fadd4eaf3f1da",
-      consumerSecret: "ac6d87540c0ff4d36d73464ee610f6c2f91c7cc5"
-    },
-    oauth: null,
     match: [],
     current_game: {},
     new_game: function(players) {
@@ -39,15 +33,6 @@
     },
     send_results: function() {
       return $.post(this.server_url, this.match);
-    },
-    get_oauth: function() {
-      if (!this.oauth) {
-        this.oauth = OAuth(this.options);
-      }
-      return this.oauth;
-    },
-    get_github_profile: function(player, callback) {
-      return this.get_oauth().get("https://api.github.com/users/" + player, callback);
     }
   };
 
