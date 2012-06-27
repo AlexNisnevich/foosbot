@@ -4,7 +4,7 @@
   score_limit: 5
 
   options:
-    enablePrivilege: true
+    enablePrivilege: false
     consumerKey: "08158d5fadd4eaf3f1da"
     consumerSecret: "ac6d87540c0ff4d36d73464ee610f6c2f91c7cc5"
   oauth: null
