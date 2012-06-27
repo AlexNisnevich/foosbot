@@ -15,7 +15,7 @@ function score(player) {
   var goal = {
     'time': new Date(),
     'scorer': player,
-    'arrangement': current_arrangement
+    'arrangement': current_game.arrangement
   }
   current_game.goals.push(goal);
 
@@ -29,5 +29,5 @@ function score(player) {
 }
 
 function reposition(new_arrangement) {
-  current_arrangement = new_arrangement;
+  current_game.arrangement = new_arrangement;
 }
