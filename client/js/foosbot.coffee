@@ -20,7 +20,7 @@
 
     @current_game.goals.push goal
 
-    scoring_team = (if (@current_game.arrangement[0].indexOf(player) > -1) then 0 else 1)
+    scoring_team = (if player in @current_game.arrangement[0] then 0 else 1)
     @current_game.scores[scoring_team]++
 
     if @current_game.scores[0] is @score_limit or @current_game.scores[1] is @score_limit
