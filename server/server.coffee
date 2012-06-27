@@ -29,5 +29,5 @@ db.open (err, db) ->
         console.log "other request"
       res.writeHead 200, 'Content-Type': 'text/plain'
       res.end 'Hello World\n'
-    .listen 1337
+    .listen server_port
     console.log "Foosbot Server running on port #{server_port}"
