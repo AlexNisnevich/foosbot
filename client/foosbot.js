@@ -1,7 +1,9 @@
 
+var server_url = '';
+var score_limit = 5;
+
 var match = [];
 var current_game;
-var score_limit = 5;
 
 function new_game(players) {
   current_game = {
@@ -30,4 +32,8 @@ function score(player) {
 
 function reposition(new_arrangement) {
   current_game.arrangement = new_arrangement;
+}
+
+function send_results() {
+  $.post(server_url, match);
 }
