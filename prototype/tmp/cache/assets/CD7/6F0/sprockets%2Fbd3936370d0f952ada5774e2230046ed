@@ -1,0 +1,107 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1340400040.5622287:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%eda2f403d48e21c6cf43407e2e4a6d8fI"logical_path;
+F"scaffolds.cssI"pathname;
+FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
+FI"content_type;
+FI"text/css;
+FI"
+mtime;
+FI"2012-06-14T01:38:23-07:00;
+FI"	body;
+FI"π/* line 1, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 8, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 13, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 18, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+r
+a {
+  color: #000;
+}
+/* line 20, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+r
+a:visited {
+  color: #666;
+}
+/* line 22, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+r
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 27, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 30, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 33, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 38, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 45, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 54, /home/alex/src/foosbot/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+;
+FI"asset_paths;
+F[I"4$root/app/assets/stylesheets/scaffolds.css.scss;
+FI"dependency_paths;
+F[{I"	path;
+FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
+FI"
+mtime;
+FIu:	Time»Äπyô
+:@_zoneI"PDT;
+T:nano_numiÖ:nano_deni:submicro"8ê:offseti˛êùI"hexdigest;
+F"%d397ce65a85687d073505ec617584d11I"_version;
+F"%0868aba5d4b750d3a9421721ea3d9b9c

@@ -1,0 +1,28 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1340400040.586075:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%14f589ecd223b478f1f7056082c1c0f3I"logical_path;
+F"jquery.oninput.min.jsI"pathname;
+FI"7$root/app/assets/javascripts/jquery.oninput.min.js;
+FI"content_type;
+FI"application/javascript;
+FI"
+mtime;
+FI"2012-06-14T03:25:18-07:00;
+FI"	body;
+FI"Ú/*! http://mths.be/oninput by @mathias */
+
+jQuery.fn.input=function(a){var b=this;return a?b.bind({'input.input':function(c){b.unbind('keydown.input');a.call(this,c)},'keydown.input':function(c){a.call(this,c)}}):b.trigger('keydown.input')};
+;
+FI"asset_paths;
+F[I"7$root/app/assets/javascripts/jquery.oninput.min.js;
+FI"dependency_paths;
+F[{I"	path;
+FI"7$root/app/assets/javascripts/jquery.oninput.min.js;
+FI"
+mtime;
+FIu:	Time ÄMb#e
+:@_zoneI"PDT;
+T:nano_numiB:nano_deni:submicro":offseti˛êùI"hexdigest;
+F"%ac94e0ea6c517993f782fe61823aa9a0I"_version;
+F"%0868aba5d4b750d3a9421721ea3d9b9c

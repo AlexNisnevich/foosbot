@@ -1,0 +1,114 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1340400040.556975:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%cf6744221476b09f5159f692f0d85969I"logical_path;
+F"games.cssI"pathname;
+FI"0$root/app/assets/stylesheets/games.css.scss;
+FI"content_type;
+FI"text/css;
+FI"
+mtime;
+FI"2012-06-14T03:03:46-07:00;
+FI"	body;
+FI"k
+/* line 6, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players {
+  float: left;
+  width: 500px;
+}
+/* line 10, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team {
+  clear: both;
+}
+/* line 13, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team .team_color {
+  float: left;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  width: 80px;
+  margin-top: 35px;
+}
+/* line 21, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team .team_color.yellow {
+  color: #990;
+}
+/* line 25, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team .team_color.black {
+  margin-left: -20px;
+}
+/* line 30, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team .player {
+  float: left;
+  width: 80px;
+  height: 80px;
+  border: 1px solid grey;
+  margin: 15px;
+}
+/* line 37, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team .player select {
+  opacity: 0.6;
+  margin-top: 55px;
+  margin-left: 4px;
+}
+/* line 42, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team .player select:hover {
+  opacity: 1;
+}
+/* line 49, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team#yellow_team .player {
+  margin-left: 60px;
+  margin-right: 10px;
+  background-color: #ff9;
+}
+/* line 57, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .team#black_team .player {
+  margin-left: 10px;
+  margin-right: 80px;
+  background-color: #eee;
+}
+/* line 65, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .players .table_diagram {
+  float: left;
+  clear: both;
+  width: 400px;
+}
+/* line 72, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .scores {
+  float: left;
+  width: 500px;
+}
+/* line 77, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .scores thead .final_score_label {
+  font-size: 1.5em;
+}
+/* line 83, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .scores tbody tr {
+  height: 200px;
+}
+/* line 86, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .scores tbody tr td {
+  width: 90px;
+  text-align: center;
+}
+/* line 93, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .scores tbody input.final_score {
+  font-size: 4em;
+}
+/* line 97, /home/alex/src/foosbot/app/assets/stylesheets/games.css.scss */
+.game_form .scores tbody input.round_score {
+  font-size: 2em;
+}
+;
+FI"asset_paths;
+F[I"0$root/app/assets/stylesheets/games.css.scss;
+FI"dependency_paths;
+F[{I"	path;
+FI"0$root/app/assets/stylesheets/games.css.scss;
+FI"
+mtime;
+FIu:	Time ÄúÔ
+:@_zoneI"PDT;
+T:nano_numi‰:nano_deni:submicro"t:offseti˛êùI"hexdigest;
+F"%429fb08b4f8f0ae2f54b30e952a1b182I"_version;
+F"%0868aba5d4b750d3a9421721ea3d9b9c

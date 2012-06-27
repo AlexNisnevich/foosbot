@@ -1,0 +1,8 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1340400040.7497785:@value{	I"length:EFiÚI"digest;
+F"%701fae1e62e15e529561bc40795dd9ebI"source;
+FI"Ú/*! http://mths.be/oninput by @mathias */
+
+jQuery.fn.input=function(a){var b=this;return a?b.bind({'input.input':function(c){b.unbind('keydown.input');a.call(this,c)},'keydown.input':function(c){a.call(this,c)}}):b.trigger('keydown.input')};
+;
+FI"_version;
+F"%14f589ecd223b478f1f7056082c1c0f3

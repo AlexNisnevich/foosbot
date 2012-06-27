@@ -1,0 +1,44 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1340400040.5852292:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%f9d70b8597bb53e6e87e2364b3e09c20I"logical_path;
+F"games.jsI"pathname;
+FI"*$root/app/assets/javascripts/games.js;
+FI"content_type;
+FI"application/javascript;
+FI"
+mtime;
+FI"2012-06-14T03:28:08-07:00;
+FI"	body;
+FI"ü$(document).ready(function(){
+    $('.player select').change(function () {
+        var $select = $(this);
+        var id = $select.val();
+        if (id == '') {
+            $select.parent().css('background-image', '')
+        } else {
+            $.get('/players/' + id + '/photo', function (data) {
+                $select.parent().css('background-image', 'url(' + data + ')');
+            });
+        }
+    });
+
+    $('.round_score').input(function () {
+        var total = 0;
+        $(this).parent().parent().find('.round_score').each(function (i, elt) {total += parseInt(elt.value);});
+        $(this).parent().parent().find('.final_score').val(total);
+    });
+});
+;
+FI"asset_paths;
+F[I"*$root/app/assets/javascripts/games.js;
+FI"dependency_paths;
+F[{I"	path;
+FI"*$root/app/assets/javascripts/games.js;
+FI"
+mtime;
+FIu:	Time ÄãÜp
+:@_zoneI"PDT;
+T:nano_numi–:nano_deni:submicro"F@:offseti˛êùI"hexdigest;
+F"%3f6fe21976c127c53be792945428cf22I"_version;
+F"%0868aba5d4b750d3a9421721ea3d9b9c
