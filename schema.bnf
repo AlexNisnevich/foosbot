@@ -1,0 +1,19 @@
+Match ::= [Game]
+
+Game ::= [Goal]
+
+Goal ::= { 'Time':        DateObject,
+           'Scorer':      Player,
+           'Arrangement': Arrangement
+         }
+
+Player ::= String # the github handle
+
+Arrangement ::= [Team]
+
+# in an Arrangement, the first team is Germany (black)
+# and the second team is Greece (yellow)
+
+Team ::= [Player]
+
+# in a Team, the first player is the player closest to their goal.
