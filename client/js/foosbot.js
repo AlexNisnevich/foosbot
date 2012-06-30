@@ -2,7 +2,25 @@
 (function() {
   var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  this.Game = {
+  this.GameView = {
+    initialize: function() {
+      $("#box").sortable({
+        change: function() {
+          return GameController.reposition(GameView.get_arrangement());
+        }
+      });
+      return $("#box").disableSelection();
+    },
+    get_arrangement: function() {
+      var players;
+      players = $('.player .name').map(function(i, elt) {
+        return elt.innerText;
+      });
+      return [[players[1], players[0]], [players[2], players[3]]];
+    }
+  };
+
+  this.GameController = {
     server_url: "",
     score_limit: 5,
     match: [],
@@ -28,6 +46,9 @@
         this.match.push(this.current_game);
         return this.new_game(this.current_game.arrangement);
       }
+    },
+    undo_score: function() {
+      return this.current_game.goals.pop;
     },
     reposition: function(new_arrangement) {
       return this.current_game.arrangement = new_arrangement;
