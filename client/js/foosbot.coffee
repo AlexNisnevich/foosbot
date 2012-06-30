@@ -1,11 +1,16 @@
 
 @GameView =
   initialize: ->
+    @enable_sorting()
+    @enable_events()
+
+  enable_sorting: ->
     $("#box").sortable({
       change: -> GameController.reposition GameView.get_arrangement()
     })
     $("#box").disableSelection()
 
+  enable_events: ->
     $(".player").click(-> GameController.score GameView.get_name_from_elt(@) )
     $("#undo").click(-> GameController.undo_score() )
     $("#submit-game").click(-> GameController.send_results() )
@@ -34,9 +39,9 @@
   current_game: {}
   total_scores: [ 0, 0 ]
 
-  initialize: ->
-    GameView.initialize()
+  initialize: (opts) ->
     @new_game GameView.get_arrangement()
+    @server_url = opts.server_url
 
   new_game: (players) ->
     @current_game =
@@ -65,9 +70,7 @@
     @refresh_scores()
 
   undo_score: ->
-    goal = @current_game.goals.pop()
-
-    if goal
+    if goal = @current_game.goals.pop()
       scoring_team = (if goal.scorer in @current_game.arrangement[0] then 0 else 1)
       @current_game.scores[scoring_team]--
       @total_scores[scoring_team]--
@@ -76,11 +79,11 @@
 
       @refresh_scores()
 
+  refresh_scores: ->
+    GameView.set_scores @current_game.scores, @total_scores
+
   reposition: (new_arrangement) ->
     @current_game.arrangement = new_arrangement
 
   send_results: ->
     $.post @server_url, @match
-
-  refresh_scores: ->
-    GameView.set_scores @current_game.scores, @total_scores

@@ -4,12 +4,18 @@
 
   this.GameView = {
     initialize: function() {
+      this.enable_sorting();
+      return this.enable_events();
+    },
+    enable_sorting: function() {
       $("#box").sortable({
         change: function() {
           return GameController.reposition(GameView.get_arrangement());
         }
       });
-      $("#box").disableSelection();
+      return $("#box").disableSelection();
+    },
+    enable_events: function() {
       $(".player").click(function() {
         return GameController.score(GameView.get_name_from_elt(this));
       });
@@ -47,9 +53,9 @@
     match: [],
     current_game: {},
     total_scores: [0, 0],
-    initialize: function() {
-      GameView.initialize();
-      return this.new_game(GameView.get_arrangement());
+    initialize: function(opts) {
+      this.new_game(GameView.get_arrangement());
+      return this.server_url = opts.server_url;
     },
     new_game: function(players) {
       this.current_game = {
@@ -78,22 +84,21 @@
     },
     undo_score: function() {
       var goal, scoring_team, _ref;
-      goal = this.current_game.goals.pop();
-      if (goal) {
+      if (goal = this.current_game.goals.pop()) {
         scoring_team = ((_ref = goal.scorer, __indexOf.call(this.current_game.arrangement[0], _ref) >= 0) ? 0 : 1);
         this.current_game.scores[scoring_team]--;
         this.total_scores[scoring_team]--;
         return this.refresh_scores();
       }
     },
+    refresh_scores: function() {
+      return GameView.set_scores(this.current_game.scores, this.total_scores);
+    },
     reposition: function(new_arrangement) {
       return this.current_game.arrangement = new_arrangement;
     },
     send_results: function() {
       return $.post(this.server_url, this.match);
-    },
-    refresh_scores: function() {
-      return GameView.set_scores(this.current_game.scores, this.total_scores);
     }
   };
 

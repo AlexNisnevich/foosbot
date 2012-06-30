@@ -86,7 +86,12 @@
 </div>
 
 <script>
-  GameController.initialize();
+  var options = {
+    server_url: ''
+  }
+
+  GameController.initialize(options);
+  GameView.initialize();
 </script>
 
 </body>
