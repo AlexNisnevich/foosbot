@@ -9,7 +9,16 @@
           return GameController.reposition(GameView.get_arrangement());
         }
       });
-      return $("#box").disableSelection();
+      $("#box").disableSelection();
+      $(".player").click(function() {
+        return GameController.score(GameView.get_name_from_elt(this));
+      });
+      $("#undo").click(function() {
+        return GameController.undo_score();
+      });
+      return $("#submit-game").click(function() {
+        return GameController.send_results();
+      });
     },
     get_arrangement: function() {
       var players;
@@ -17,6 +26,18 @@
         return elt.innerText;
       });
       return [[players[1], players[0]], [players[2], players[3]]];
+    },
+    get_name_from_elt: function(elt) {
+      return $(elt).find('.name').text();
+    },
+    set_scores: function(scores, totalScores) {
+      $(".black .score .value").text(scores[0]);
+      $(".yellow .score .value").text(scores[1]);
+      $(".black .total .value").text(totalScores[0]);
+      return $(".yellow .total .value").text(totalScores[1]);
+    },
+    set_game_num: function(num) {
+      return $("#game .value").text(num);
     }
   };
 
@@ -25,12 +46,18 @@
     score_limit: 5,
     match: [],
     current_game: {},
+    total_scores: [0, 0],
+    initialize: function() {
+      GameView.initialize();
+      return this.new_game(GameView.get_arrangement());
+    },
     new_game: function(players) {
-      return this.current_game = {
+      this.current_game = {
         goals: [],
         arrangement: players,
         scores: [0, 0]
       };
+      return GameView.set_game_num(this.match.length + 1);
     },
     score: function(player) {
       var goal, scoring_team;
@@ -42,19 +69,31 @@
       this.current_game.goals.push(goal);
       scoring_team = (__indexOf.call(this.current_game.arrangement[0], player) >= 0 ? 0 : 1);
       this.current_game.scores[scoring_team]++;
+      this.total_scores[scoring_team]++;
       if (this.current_game.scores[0] === this.score_limit || this.current_game.scores[1] === this.score_limit) {
         this.match.push(this.current_game);
-        return this.new_game(this.current_game.arrangement);
+        this.new_game(this.current_game.arrangement);
       }
+      return this.refresh_scores();
     },
     undo_score: function() {
-      return this.current_game.goals.pop;
+      var goal, scoring_team, _ref;
+      goal = this.current_game.goals.pop();
+      if (goal) {
+        scoring_team = ((_ref = goal.scorer, __indexOf.call(this.current_game.arrangement[0], _ref) >= 0) ? 0 : 1);
+        this.current_game.scores[scoring_team]--;
+        this.total_scores[scoring_team]--;
+        return this.refresh_scores();
+      }
     },
     reposition: function(new_arrangement) {
       return this.current_game.arrangement = new_arrangement;
     },
     send_results: function() {
       return $.post(this.server_url, this.match);
+    },
+    refresh_scores: function() {
+      return GameView.set_scores(this.current_game.scores, this.total_scores);
     }
   };
 
