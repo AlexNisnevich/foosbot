@@ -33,10 +33,9 @@
 
 @GameController =
   server_url: ""
-  score_limit: 5
 
   match: []
-  current_game: {}
+  current_game: null
   total_scores: [ 0, 0 ]
 
   initialize: (opts) ->
@@ -44,46 +43,71 @@
     @server_url = opts.server_url
 
   new_game: (players) ->
-    @current_game =
-      goals: []
-      arrangement: players
-      scores: [ 0, 0 ]
-
-    GameView.set_game_num( @match.length + 1 )
+    @current_game = new Game(players)
+    @match.push @current_game
+    @refresh_scores()
 
   score: (player) ->
-    goal =
-      time: new Date()
-      scorer: player
-      arrangement: @current_game.arrangement
+    @current_game.add_goal player
 
-    @current_game.goals.push goal
-
-    scoring_team = (if player in @current_game.arrangement[0] then 0 else 1)
-    @current_game.scores[scoring_team]++
-    @total_scores[scoring_team]++
-
-    if @current_game.scores[0] is @score_limit or @current_game.scores[1] is @score_limit
-      @match.push @current_game
+    if @current_game.is_game_over()
       @new_game @current_game.arrangement
 
     @refresh_scores()
 
   undo_score: ->
-    if goal = @current_game.goals.pop()
-      scoring_team = (if goal.scorer in @current_game.arrangement[0] then 0 else 1)
-      @current_game.scores[scoring_team]--
-      @total_scores[scoring_team]--
+    if @current_game.is_empty() and @match.length > 1
+      @match.pop()
+      @current_game = @match[@match.length - 1]
 
-      # TODO: be able to undo a game-ending goal too
-
-      @refresh_scores()
+    @current_game.undo_goal()
+    @refresh_scores()
 
   refresh_scores: ->
+    add_arrays = (prevVal, val) -> [prevVal[0] + val[0], prevVal[1] + val[1]]
+    scores = @match.map (game) -> game.scores
+    @total_scores = scores.reduce add_arrays, [0, 0]
+
     GameView.set_scores @current_game.scores, @total_scores
+    GameView.set_game_num @match.length
 
   reposition: (new_arrangement) ->
-    @current_game.arrangement = new_arrangement
+    @current_game.reposition new_arrangement
 
   send_results: ->
     $.post @server_url, @match
+
+class Game
+  score_limit: 5
+
+  constructor: (arrangement) ->
+    @goals = []
+    @arrangement = arrangement
+    @scores = [ 0, 0 ]
+
+  get_team_from_player: (player) ->
+    if player in @arrangement[0]
+      0
+    else
+      1
+
+  is_empty: ->
+    @scores[0] == 0 and @scores[1] == 0
+
+  is_game_over: ->
+    @scores[0] >= @score_limit or @scores[1] >= @score_limit
+
+  add_goal: (player) ->
+    goal =
+      time: new Date()
+      scorer: player
+      arrangement: @arrangement
+
+    @goals.push goal
+    @scores[@get_team_from_player player]++
+
+  undo_goal: ->
+    if goal = @goals.pop()
+      @scores[@get_team_from_player goal.scorer]--
+
+  reposition: (@arrangement) ->
