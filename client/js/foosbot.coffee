@@ -23,10 +23,10 @@
     $(elt).find('.name').text()
 
   set_scores: (scores, totalScores) ->
-    $(".black .score .value").text scores[0]
-    $(".yellow .score .value").text scores[1]
-    $(".black .total .value").text totalScores[0]
-    $(".yellow .total .value").text totalScores[1]
+    $("#black .score .value").text scores[0]
+    $("#yellow .score .value").text scores[1]
+    $("#black .total .value").text totalScores[0]
+    $("#yellow .total .value").text totalScores[1]
 
   set_game_num: (num) ->
     $("#game .value").text num

@@ -8,22 +8,35 @@
   <link href="foosbot.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="left-panel" class="yellow">
-  <div class="score">
-    <span class="small">Score</span><br />
-    <span class="value huge">0</span>
+<img class="source-image" src="images/background.png" alt="" />
+
+<div id="header-panel">
+  <div id="yellow">
+    <div class="spacer"></div>
+    <div class="total">
+      <span class="small">Total</span><br />
+      <span class="value big">0</span><br />
+    </div>
+    <div class="score">
+      <span class="value huge">0</span>
+    </div>
   </div>
-  <div class="tally"></div>
-  <div class="total">
-    <span class="small">Total</span><br />
-    <span class="value big">0</span><br />
+  <div id="game">
+    <span class="value huge">4</span>
+  </div>
+  <div id="black">
+    <div class="score">
+      <span class="value huge">0</span>
+    </div>
+    <div class="total">
+      <span class="small">Total</span><br />
+      <span class="value big">0</span><br />
+    </div>
   </div>
 </div>
+
 <div id="middle-panel">
-  <div id="header-panel">
-    <div id="own-goal">
-      Own Goal!
-    </div>
+  <div id="left-margin" class="yellow">
   </div>
   <div id="player-box">
     <div class="player ui-state-default">
@@ -55,34 +68,24 @@
       </div>
     </div>
   </div>
-  <div id="footer-panel">
-    <div class="spacer"></div>
-    <div id="bottom-container">
-      <div id="undo">
-        <span class="medium">Undo!</span>
-      </div>
-      <div class="spacer"></div>
-      <div id="game">
-        <span class="small">Game</span>
-        <span class="value medium">1</span><br />
-      </div>
-      <div class="spacer"></div>
-      <div id="submit-game">
-        <span class="medium">Submit!</span>
-      </div>
-    </div>
+  <div id="right-margin" class="black">
   </div>
 </div>
-<div id="right-panel" class="black">
+
+<div id="footer-panel">
+  <div class="clearer"></div>
   <div class="spacer"></div>
-  <div class="score">
-    <span class="small">Score</span><br />
-    <span class="value huge">0</span>
+  <div id="own-goal">
+    Own Goal!
   </div>
-  <div class="tally"></div>
-  <div class="total">
-    <span class="small">Total</span><br />
-    <span class="value big">0</span><br />
+  <div class="clearer"></div>
+  <div class="spacer"></div>
+  <div id="undo">
+    <span class="medium">Undo!</span>
+  </div>
+  <div class="spacer"></div>
+  <div id="new-game">
+    <span class="medium">New Game!</span>
   </div>
 </div>
 
