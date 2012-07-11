@@ -106,6 +106,7 @@ body {
   height: 75%;
   margin: auto;
   padding: 0px;
+  background-color: red;
 }
 
 #footer-panel div.clearer {
