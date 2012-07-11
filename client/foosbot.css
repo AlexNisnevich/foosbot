@@ -5,9 +5,13 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background: url('images/background.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 #header-panel, #footer-panel {
-  background-color: blue;
   padding: 0px;
   width: 100%;
   float: left;
@@ -36,43 +40,45 @@ body {
   float: right;
 }
 #header-panel #yellow {
-  background-color: purple;
   width: 40%;
   height: 100%;
   float: left;
+  color: #bcffa5;
 }
 #header-panel #black {
-  background-color: green;
   width: 40%;
   height: 100%;
   float: right;
+  color: #ffeb7f;
 }
 
+#header-panel div.spacer {
+  width: 20%;
+  height: 10%;
+  float: left;
+}
 #header-panel div.score {
-  background-color: yellow;
-  width: 50%;
+  width: 40%;
   height: 100%;
   float: left;
   text-align: center;
 }
 #header-panel #game {
-  background-color: yellow;
   padding: 0px;
   width: 20%;
   height: 100%;
   text-align: center;
+  color: white;
   float: left;
 }
 #header-panel div.total {
-  background-color: yellow;
-  width: 50%;
+  width: 40%;
   height: 100%;
   float: left;
   text-align: center;
 }
 
 #player-box {
-  background-color: green;
   padding: 0px;
   margin: auto;
   width: 80%;
@@ -94,14 +100,12 @@ body {
   height: 90%;
   margin: auto;
   padding: 0px;
-  background-color: blue;
 }
 #player-box div.photo {
   width: 50%;
   height: 75%;
   margin: auto;
   padding: 0px;
-  background-color: red;
 }
 
 #footer-panel div.clearer {
@@ -116,7 +120,6 @@ body {
   float: left;
 }
 #footer-panel #own-goal {
-  background-color: green;
   padding: 0px;
   width: 88%;
   height: 35%;
@@ -125,7 +128,6 @@ body {
   font: 3em arial, verdana, sans-serif;
 }
 #footer-panel #undo {
-  background-color: green;
   padding: 0px;
   width: 42%;
   height: 35%;
@@ -133,7 +135,6 @@ body {
   float: left;
 }
 #footer-panel #new-game {
-  background-color: green;
   padding: 0px;
   width: 40%;
   height: 35%;
