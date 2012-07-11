@@ -8,12 +8,12 @@
       return this.enable_events();
     },
     enable_sorting: function() {
-      $("#box").sortable({
+      $("#player-box").sortable({
         change: function() {
           return GameController.reposition(GameView.get_arrangement());
         }
       });
-      return $("#box").disableSelection();
+      return $("#player-box").disableSelection();
     },
     enable_events: function() {
       $(".player").click(function() {

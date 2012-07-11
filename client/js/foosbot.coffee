@@ -5,10 +5,10 @@
     @enable_events()
 
   enable_sorting: ->
-    $("#box").sortable({
+    $("#player-box").sortable({
       change: -> GameController.reposition GameView.get_arrangement()
     })
-    $("#box").disableSelection()
+    $("#player-box").disableSelection()
 
   enable_events: ->
     $(".player").click(-> GameController.score GameView.get_name_from_elt(@) )
