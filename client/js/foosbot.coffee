@@ -38,6 +38,10 @@
   current_game: null
   total_scores: [ 0, 0 ]
 
+  match_ended: false
+  tournament_style: false
+  num_repositions: 0
+
   initialize: (opts) ->
     @new_game GameView.get_arrangement()
     @server_url = opts.server_url
@@ -52,6 +56,9 @@
 
     if @current_game.is_game_over()
       @new_game @current_game.arrangement
+
+      if @is_match_over()
+        @send_results()
 
     @refresh_scores()
 
@@ -73,9 +80,20 @@
 
   reposition: (new_arrangement) ->
     @current_game.reposition new_arrangement
+    @num_repositions++
+    if @num_repositions >= 4
+      # minimum of 4 repositions in tournament style game
+      @tournament_style = true
+
+  is_match_over: ->
+    if @tournament_style
+      @match.length >= 3
+    else
+      @match.length >= 4
 
   send_results: ->
     $.post @server_url, @match
+    @match_ended = true
 
 class Game
   score_limit: 5

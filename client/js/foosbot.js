@@ -53,6 +53,8 @@
     match: [],
     current_game: null,
     total_scores: [0, 0],
+    tournament_style: false,
+    num_repositions: 0,
     initialize: function(opts) {
       this.new_game(GameView.get_arrangement());
       return this.server_url = opts.server_url;
@@ -66,6 +68,9 @@
       this.current_game.add_goal(player);
       if (this.current_game.is_game_over()) {
         this.new_game(this.current_game.arrangement);
+        if (this.is_match_over()) {
+          this.send_results();
+        }
       }
       return this.refresh_scores();
     },
@@ -90,7 +95,18 @@
       return GameView.set_game_num(this.match.length);
     },
     reposition: function(new_arrangement) {
-      return this.current_game.reposition(new_arrangement);
+      this.current_game.reposition(new_arrangement);
+      this.num_repositions++;
+      if (this.num_repositions >= 4) {
+        return this.tournament_style = true;
+      }
+    },
+    is_match_over: function() {
+      if (this.tournament_style) {
+        return this.match.length >= 3;
+      } else {
+        return this.match.length >= 4;
+      }
     },
     send_results: function() {
       return $.post(this.server_url, this.match);
