@@ -1,0 +1,188 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+html {
+  height: 100%;
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: url('../images/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+  }
+}
+
+span {
+  &.small {
+    font-size: 1.5em;
+  }
+
+  &.medium {
+    font-size: 3em;
+  }
+
+  &.big {
+    font-size: 5em;
+  }
+
+  &.huge {
+    font-size: 7em;
+  }
+}
+
+#header-panel, #footer-panel {
+  padding: 0px;
+  width: 100%;
+  float: left;
+}
+
+#header-panel {
+  height: 15%;
+
+  #yellow {
+    width: 40%;
+    height: 100%;
+    float: left;
+    color: #bcffa5;
+  }
+
+  #black {
+    width: 40%;
+    height: 100%;
+    float: right;
+    color: #ffeb7f;
+  }
+
+  .spacer {
+    width: 20%;
+    height: 10%;
+    float: left;
+  }
+
+  .score {
+    width: 40%;
+    height: 100%;
+    float: left;
+    text-align: center;
+  }
+
+  #game {
+    padding: 0px;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    float: left;
+  }
+
+  .total {
+    width: 40%;
+    height: 100%;
+    float: left;
+    text-align: center;
+  }
+}
+
+#middle-panel {
+  padding: 0px;
+  width: 100%;
+  height: 60%;
+  float: left;
+
+  #left-margin, #right-margin {
+    padding: 0px;
+    width: 10%;
+    height: 100%;
+  }
+
+  #left-margin {
+    float: left;
+  }
+
+  #right-margin {
+    float: right;
+  }
+
+  .player-box {
+    padding: 0px;
+    margin: auto;
+    width: 40%;
+    height: 100%;
+    float: left;
+
+    .player {
+      width: 100%;
+      height: 47.5%;
+      margin: auto;
+      padding: 0px;
+      padding-top: 2%;
+      float: left;
+      text-align: center;
+      font-size: 3em;
+    }
+    .card {
+      width: 90%;
+      height: 90%;
+      margin: auto;
+      padding: 0px;
+    }
+    .photo {
+      width: 50%;
+      height: 75%;
+      margin: auto;
+      padding: 0px;
+      background-color: red;
+    }
+  }
+}
+
+#footer-panel {
+  height: 25%;
+
+  .clearer {
+    width: 100%;
+    height: 10%;
+    clear: both;
+    float: left;
+  }
+
+  .spacer {
+    width: 6%;
+    height: 10%;
+    float: left;
+  }
+
+  #own-goal {
+    padding: 0px;
+    width: 88%;
+    height: 35%;
+    float: left;
+    text-align: center;
+    font-size: 3em;
+  }
+
+  #undo {
+    padding: 0px;
+    width: 42%;
+    height: 35%;
+    text-align: center;
+    float: left;
+  }
+
+  #new-game {
+    padding: 0px;
+    width: 40%;
+    height: 35%;
+    text-align: center;
+    float: left;
+  }
+}
