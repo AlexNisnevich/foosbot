@@ -23,11 +23,14 @@
       $("#undo").click(function() {
         return GameController.undo_score();
       });
+      $("#own-goal").click(function() {
+        return GameController.toggle_own_goal();
+      });
       $("#submit-game").click(function() {
         return GameController.send_results();
       });
-      return $("#own-goal").click(function() {
-        return GameController.toggle_own_goal();
+      return $("#new-game").click(function() {
+        return GameController.initialize();
       });
     },
     get_arrangement: function() {
@@ -60,14 +63,13 @@
 
   this.GameController = {
     server_url: "",
-    match: [],
-    current_game: null,
-    total_scores: [0, 0],
-    match_ended: false,
-    tournament_style: false,
-    num_repositions: 0,
-    own_goal: false,
     initialize: function(opts) {
+      this.match = [];
+      this.total_scores = [0, 0];
+      this.match_ended = false;
+      this.tournament_style = false;
+      this.num_repositions = 0;
+      this.own_goal = false;
       this.new_game(GameView.get_arrangement());
       return this.server_url = opts.server_url;
     },

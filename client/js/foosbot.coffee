@@ -13,8 +13,9 @@
   enable_events: ->
     $(".player").click(-> GameController.score GameView.get_name_from_elt(@) )
     $("#undo").click(-> GameController.undo_score() )
-    $("#submit-game").click(-> GameController.send_results() )
     $("#own-goal").click(-> GameController.toggle_own_goal() )
+    $("#submit-game").click(-> GameController.send_results() )
+    $("#new-game").click(-> GameController.initialize() )
 
   get_arrangement: ->
     players = $('.player .name').map((i, elt) -> elt.innerText)
@@ -41,16 +42,15 @@
 @GameController =
   server_url: ""
 
-  match: []
-  current_game: null
-  total_scores: [ 0, 0 ]
-
-  match_ended: false
-  tournament_style: false
-  num_repositions: 0
-  own_goal: false
-
   initialize: (opts) ->
+    @match = []
+    @total_scores = [ 0, 0 ]
+
+    @match_ended = false
+    @tournament_style = false
+    @num_repositions = 0
+    @own_goal = false
+
     @new_game GameView.get_arrangement()
     @server_url = opts.server_url
 
