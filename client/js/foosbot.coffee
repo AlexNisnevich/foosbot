@@ -52,7 +52,9 @@
     @own_goal = false
 
     @new_game GameView.get_arrangement()
-    @server_url = opts.server_url
+
+    if opts
+      @server_url = opts.server_url
 
   new_game: (players) ->
     @current_game = new Game(players)

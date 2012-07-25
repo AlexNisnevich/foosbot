@@ -71,7 +71,9 @@
       this.num_repositions = 0;
       this.own_goal = false;
       this.new_game(GameView.get_arrangement());
-      return this.server_url = opts.server_url;
+      if (opts) {
+        return this.server_url = opts.server_url;
+      }
     },
     new_game: function(players) {
       this.current_game = new Game(players);
