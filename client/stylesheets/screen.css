@@ -236,24 +236,26 @@ span.huge {
   padding: 0px;
   padding-top: 20px;
   float: left;
-  background: #999;
+  background: rgba(0, 0, 0, 0.6);
+  color: #999;
   text-align: center;
   height: 30%;
   font-size: 3em;
 }
-/* line 175, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 #footer-panel .button.active {
   background: yellow;
+  color: #333;
 }
-/* line 179, ../sass/screen.scss */
+/* line 181, ../sass/screen.scss */
 #footer-panel .button#own-goal {
   width: 88%;
 }
-/* line 183, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 #footer-panel .button#undo {
   width: 42%;
 }
-/* line 187, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 #footer-panel .button#new-game {
   width: 40%;
 }

@@ -167,13 +167,15 @@ span {
     padding: 0px;
     padding-top: 20px;
     float: left;
-    background: #999;
+    background: rgba(0.2, 0.2, 0.2, 0.6);
+    color: #999;
     text-align: center;
     height: 30%;
     font-size: 3em;
 
     &.active {
       background: yellow;
+      color: #333;
     }
 
     &#own-goal {
