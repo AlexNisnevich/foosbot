@@ -5,10 +5,10 @@
     @enable_events()
 
   enable_sorting: ->
-    $("#player-box").sortable({
+    $(".player-box").sortable({
       change: -> GameController.reposition GameView.get_arrangement()
     })
-    $("#player-box").disableSelection()
+    $(".player-box").disableSelection()
 
   enable_events: ->
     $(".player").click(-> GameController.score GameView.get_name_from_elt(@) )
@@ -17,7 +17,7 @@
 
   get_arrangement: ->
     players = $('.player .name').map((i, elt) -> elt.innerText)
-    [[players[0], players[2]], [players[3], players[1]]] # as per schema.bnf
+    [[players[1], players[0]], [players[2], players[3]]] # as per schema.bnf
 
   get_name_from_elt: (elt) ->
     $(elt).find('.name').text()

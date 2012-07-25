@@ -9,12 +9,12 @@
       return this.enable_events();
     },
     enable_sorting: function() {
-      $("#player-box").sortable({
+      $(".player-box").sortable({
         change: function() {
           return GameController.reposition(GameView.get_arrangement());
         }
       });
-      return $("#player-box").disableSelection();
+      return $(".player-box").disableSelection();
     },
     enable_events: function() {
       $(".player").click(function() {
@@ -32,7 +32,7 @@
       players = $('.player .name').map(function(i, elt) {
         return elt.innerText;
       });
-      return [[players[0], players[2]], [players[3], players[1]]];
+      return [[players[1], players[0]], [players[2], players[3]]];
     },
     get_name_from_elt: function(elt) {
       return $(elt).find('.name').text();
