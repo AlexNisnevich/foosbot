@@ -120,6 +120,7 @@ span {
     float: left;
 
     .player {
+      cursor: drag;
       width: 100%;
       height: 47.5%;
       margin: auto;
@@ -161,28 +162,30 @@ span {
     float: left;
   }
 
-  #own-goal {
+  .button {
+    cursor: pointer;
     padding: 0px;
-    width: 88%;
-    height: 35%;
+    padding-top: 20px;
     float: left;
+    background: #999;
     text-align: center;
+    height: 30%;
     font-size: 3em;
-  }
 
-  #undo {
-    padding: 0px;
-    width: 42%;
-    height: 35%;
-    text-align: center;
-    float: left;
-  }
+    &.active {
+      background: yellow;
+    }
 
-  #new-game {
-    padding: 0px;
-    width: 40%;
-    height: 35%;
-    text-align: center;
-    float: left;
+    &#own-goal {
+      width: 88%;
+    }
+
+    &#undo {
+      width: 42%;
+    }
+
+    &#new-game {
+      width: 40%;
+    }
   }
 }

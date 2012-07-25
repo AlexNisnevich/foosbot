@@ -23,8 +23,11 @@
       $("#undo").click(function() {
         return GameController.undo_score();
       });
-      return $("#submit-game").click(function() {
+      $("#submit-game").click(function() {
         return GameController.send_results();
+      });
+      return $("#own-goal").click(function() {
+        return GameController.toggle_own_goal();
       });
     },
     get_arrangement: function() {
@@ -32,7 +35,7 @@
       players = $('.player .name').map(function(i, elt) {
         return elt.innerText;
       });
-      return [[players[1], players[0]], [players[2], players[3]]];
+      return [[players[2], players[3]], [players[1], players[0]]];
     },
     get_name_from_elt: function(elt) {
       return $(elt).find('.name').text();
@@ -45,6 +48,13 @@
     },
     set_game_num: function(num) {
       return $("#game .value").text(num);
+    },
+    show_own_goal_status: function(status) {
+      if (status === true) {
+        return $("#own-goal").addClass('active');
+      } else {
+        return $("#own-goal").removeClass('active');
+      }
     }
   };
 
@@ -56,6 +66,7 @@
     match_ended: false,
     tournament_style: false,
     num_repositions: 0,
+    own_goal: false,
     initialize: function(opts) {
       this.new_game(GameView.get_arrangement());
       return this.server_url = opts.server_url;
@@ -66,7 +77,11 @@
       return this.refresh_scores();
     },
     score: function(player) {
-      this.current_game.add_goal(player);
+      this.current_game.add_goal(player, this.own_goal);
+      if (this.own_goal) {
+        this.own_goal = false;
+        GameView.show_own_goal_status(this.own_goal);
+      }
       if (this.current_game.is_game_over()) {
         this.new_game(this.current_game.arrangement);
         if (this.is_match_over()) {
@@ -102,6 +117,10 @@
         return this.tournament_style = true;
       }
     },
+    toggle_own_goal: function() {
+      this.own_goal = !this.own_goal;
+      return GameView.show_own_goal_status(this.own_goal);
+    },
     is_match_over: function() {
       if (this.tournament_style) {
         return this.match.length >= 3;
@@ -125,8 +144,8 @@
       this.scores = [0, 0];
     }
 
-    Game.prototype.get_team_from_player = function(player) {
-      if (__indexOf.call(this.arrangement[0], player) >= 0) {
+    Game.prototype.get_scoring_team = function(player, own_goal) {
+      if ((__indexOf.call(this.arrangement[0], player) >= 0) !== own_goal) {
         return 0;
       } else {
         return 1;
@@ -141,21 +160,22 @@
       return this.scores[0] >= this.score_limit || this.scores[1] >= this.score_limit;
     };
 
-    Game.prototype.add_goal = function(player) {
+    Game.prototype.add_goal = function(player, own_goal) {
       var goal;
       goal = {
         time: new Date(),
         scorer: player,
-        arrangement: this.arrangement
+        arrangement: this.arrangement,
+        own_goal: own_goal
       };
       this.goals.push(goal);
-      return this.scores[this.get_team_from_player(player)]++;
+      return this.scores[this.get_scoring_team(player, own_goal)]++;
     };
 
     Game.prototype.undo_goal = function() {
       var goal;
       if (goal = this.goals.pop()) {
-        return this.scores[this.get_team_from_player(goal.scorer)]--;
+        return this.scores[this.get_scoring_team(goal.scorer, goal.own_goal)]--;
       }
     };
 

@@ -4,7 +4,8 @@ Game ::= [Goal]
 
 Goal ::= { 'Time':        DateObject,
            'Scorer':      Player,
-           'Arrangement': Arrangement
+           'Arrangement': Arrangement,
+           'OwnGoal':     Boolean
          }
 
 Player ::= String # the github handle
